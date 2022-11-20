@@ -7,5 +7,5 @@
 - 原先基础部分的代码示例复制到practice目录下了
 - https://www.bilibili.com/video/BV1MA411K7Yh
 
-## x.碎碎念
+## X.碎碎念
 1. Advanced意思是进阶，想要取得进步继续努力。
