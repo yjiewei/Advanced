@@ -4,7 +4,7 @@
 - 接下来会看看web相关的教程吧，冲就完事了
 
 ## 2.Go进阶
-- 原先基础部分的代码示例复制到practice目录下了
+- 原先基础部分的代码示例复制到practice目录下了，这里的包及文件不是很规范，但方便
 - https://www.bilibili.com/video/BV1MA411K7Yh
 
 ## 3.不知记哪的笔记 
