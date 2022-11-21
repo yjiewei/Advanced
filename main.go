@@ -17,6 +17,11 @@ import (
 	6.导入包时，路径要从src下开始写
 */
 func main() {
+	// time()
+	file()
+}
+
+func time() {
 	utils.Test()
 	person := utils.Person{
 		Name:  "杨杰炜",
@@ -25,4 +30,8 @@ func main() {
 	fmt.Println("个人姓名：" + person.Name + " 联系方式：" + person.Email)
 
 	utils.TimeFunc()
+}
+
+func file() {
+	utils.FileFunc()
 }
