@@ -18,7 +18,8 @@ import (
 */
 func main() {
 	// time()
-	file()
+	// file()
+	io()
 }
 
 func time() {
@@ -34,4 +35,8 @@ func time() {
 
 func file() {
 	utils.FileFunc()
+}
+
+func io() {
+	utils.IOFunc()
 }
