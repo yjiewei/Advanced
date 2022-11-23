@@ -19,7 +19,8 @@ import (
 func main() {
 	// time()
 	// file()
-	io()
+	// io()
+	cp()
 }
 
 func time() {
@@ -39,4 +40,8 @@ func file() {
 
 func io() {
 	utils.IOFunc()
+}
+
+func cp() {
+	utils.Copy()
 }
