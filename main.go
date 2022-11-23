@@ -20,7 +20,8 @@ func main() {
 	// time()
 	// file()
 	// io()
-	cp()
+	// cp()
+	seek()
 }
 
 func time() {
@@ -44,4 +45,8 @@ func io() {
 
 func cp() {
 	utils.Copy()
+}
+
+func seek() {
+	utils.Seek()
 }
