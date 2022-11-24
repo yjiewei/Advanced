@@ -23,8 +23,10 @@ import (
 
 // User 字段需要大写
 type User struct {
-	Id   int    `form:"id"`
-	Name string `form:"name"`
+	Id         int               `form:"id"`
+	Name       string            `form:"name"`
+	Address    []string          `form:"address"`
+	AddressMap map[string]string `form:"addressMap"`
 }
 
 func main() {
@@ -159,6 +161,31 @@ func web() {
 	engine.GET("/user/map", func(ctx *gin.Context) {
 		addressMap := ctx.QueryMap("addressMap") // 等同于GetQueryArray()
 		ctx.JSON(200, addressMap)
+	})
+
+	// 5.4POST请求获取参数
+	engine.POST("/user/save", func(ctx *gin.Context) {
+		id := ctx.PostForm("id")
+		name := ctx.PostForm("name")
+		address := ctx.PostForm("address")
+		addressMap := ctx.PostFormMap("addressMap")
+		var user User
+		_ = ctx.ShouldBind(&user)
+		fmt.Println("user:", user)
+		ctx.JSON(200, gin.H{
+			"id":         id,
+			"name":       name,
+			"address":    address,
+			"addressMap": addressMap,
+		})
+	})
+
+	// 5.4 json格式的post请求获取参数
+	engine.POST("/user/saveJson", func(ctx *gin.Context) {
+		var user User
+		_ = ctx.ShouldBindJSON(&user)
+		fmt.Println("user:", user) // user: {110 杨杰炜 [广东省广州市番禺区] map[company:NETCA name:长腿老头]}
+		ctx.JSON(200, user)
 	})
 
 	// 4.启动项目
