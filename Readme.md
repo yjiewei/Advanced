@@ -26,6 +26,7 @@
 - go允许import不同代码库的代码，对于import要导入的外部的包，可以使用go get命令去下来放到GOPATH下，但是用模块管理之后要怎么做？
 
 ## 4.Gin
+- 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
 - 官网地址：https://gin-gonic.com/zh-cn/docs/
 - go work init 
 - go mod init [module path]
