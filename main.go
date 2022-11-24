@@ -198,11 +198,30 @@ func web() {
 	//	})
 	//})
 
-	// post请求获取URI上面的参数值
+	// 5.5post请求获取URI上面的参数值
 	engine.POST("/user/save/:id/:name", func(ctx *gin.Context) {
 		var user User
 		_ = ctx.BindUri(&user) //绑定uri上面的参数，user结构体里面要标签上uri
 		ctx.JSON(200, user)
+	})
+
+	// 5.6post请求获取文件参数
+	engine.POST("/user/saveFile", func(ctx *gin.Context) {
+		form, err := ctx.MultipartForm() // ctx.FormFile()
+		if err != nil {
+			log.Fatal(err)
+		}
+		value := form.Value
+		files := form.File
+		for _, fileArray := range files {
+			for _, v := range fileArray {
+				err := ctx.SaveUploadedFile(v, "./"+v.Filename)
+				if err != nil {
+					log.Fatal(err)
+				}
+			}
+		}
+		ctx.JSON(200, value)
 	})
 
 	// 4.启动项目
