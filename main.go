@@ -94,6 +94,21 @@ func web() {
 		ctx.JSON(200, ctx.Param("path"))
 	})
 
+	// 分组路由
+	v1 := engine.Group("/v1")
+	{
+		v1.GET("find", func(ctx *gin.Context) {
+			ctx.JSON(200, "v1 find method")
+		})
+	}
+
+	v2 := engine.Group("/v2")
+	{
+		v2.GET("find", func(ctx *gin.Context) {
+			ctx.JSON(200, "v2 find method")
+		})
+	}
+
 	err := engine.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
