@@ -63,6 +63,37 @@ func web() {
 			"name": "hello world",
 		})
 	})
+
+	// 路由请求方法
+	engine.GET("/get", func(ctx *gin.Context) {
+		ctx.JSON(200, "get")
+	})
+
+	engine.POST("/post", func(ctx *gin.Context) {
+		ctx.JSON(200, "post")
+	})
+
+	engine.PUT("/update", func(ctx *gin.Context) {
+		ctx.JSON(200, "update")
+	})
+
+	engine.DELETE("/delete", func(ctx *gin.Context) {
+		ctx.JSON(200, "delete")
+	})
+
+	engine.Any("/any", func(ctx *gin.Context) {
+		ctx.JSON(200, "any")
+	})
+
+	engine.POST("/user/api/:id", func(ctx *gin.Context) {
+		ctx.JSON(200, ctx.Param("id"))
+	})
+
+	engine.POST("/path/*path", func(ctx *gin.Context) {
+		// 获取路径参数
+		ctx.JSON(200, ctx.Param("path"))
+	})
+
 	err := engine.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
