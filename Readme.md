@@ -25,6 +25,13 @@
 - 为了执行包的初始化函数而导包，导入的时候可以对包起别名 _
 - go允许import不同代码库的代码，对于import要导入的外部的包，可以使用go get命令去下来放到GOPATH下，但是用模块管理之后要怎么做？
 
+## 4.Gin
+- 官网地址：https://gin-gonic.com/zh-cn/docs/
+- go work init 
+- go mod init [module path]
+- go get -u github.com/gin-gonic/gin
+- 类似Python的导包，导入之后就能使用了，不一定只能用这个框架
+
 ## X.碎碎念
 1. Advanced意思是进阶，想要取得进步继续努力；
 2. 学Go最初的想法就是担心Java太卷，想换个赛道；

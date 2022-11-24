@@ -3,6 +3,8 @@ package main
 import (
 	"Advanced/utils"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
 )
 
 /*
@@ -21,7 +23,8 @@ func main() {
 	// file()
 	// io()
 	// cp()
-	seek()
+	// seek()
+	web()
 }
 
 func time() {
@@ -49,4 +52,19 @@ func cp() {
 
 func seek() {
 	utils.Seek()
+}
+
+func web() {
+	engine := gin.Default()
+	// curl http://localhost:8080/helloworld GET
+	engine.GET("/helloworld", func(ctx *gin.Context) {
+		// 数组 map list 结构体
+		ctx.JSON(200, gin.H{
+			"name": "hello world",
+		})
+	})
+	err := engine.Run(":8080")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
