@@ -23,8 +23,8 @@ import (
 
 // User 字段需要大写
 type User struct {
-	Id         int               `form:"id"`
-	Name       string            `form:"name"`
+	Id         int               `form:"id" uri:"id"` // tag:form是针对表单的字段映射 还有json
+	Name       string            `form:"name" uri:"name"`
 	Address    []string          `form:"address"`
 	AddressMap map[string]string `form:"addressMap"`
 }
@@ -185,6 +185,23 @@ func web() {
 		var user User
 		_ = ctx.ShouldBindJSON(&user)
 		fmt.Println("user:", user) // user: {110 杨杰炜 [广东省广州市番禺区] map[company:NETCA name:长腿老头]}
+		ctx.JSON(200, user)
+	})
+
+	// http://localhost:8080/user/save/10/yangjiewei
+	//engine.POST("/user/save/:id/:name", func(ctx *gin.Context) {
+	//	id := ctx.Param("id")
+	//	name := ctx.Param("name")
+	//	ctx.JSON(200, gin.H{
+	//		"id":   id,
+	//		"name": name,
+	//	})
+	//})
+
+	// post请求获取URI上面的参数值
+	engine.POST("/user/save/:id/:name", func(ctx *gin.Context) {
+		var user User
+		_ = ctx.BindUri(&user) //绑定uri上面的参数，user结构体里面要标签上uri
 		ctx.JSON(200, user)
 	})
 
