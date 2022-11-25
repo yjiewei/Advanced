@@ -4,6 +4,7 @@ import (
 	"Advanced/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"log"
 )
 
@@ -36,7 +37,7 @@ func main() {
 	// cp()
 	// seek()
 	// web()
-	template()
+	templateRendering()
 }
 
 func time() {
@@ -256,15 +257,26 @@ func web() {
 	}
 }
 
-func template() {
+func templateRendering() {
 	engine := gin.Default()
-	// 加载模板 这里可以加载多个，以及用Glob
+	// 1.在加载模板前设置模板函数
+	engine.SetFuncMap(template.FuncMap{
+		"render": func(str string) template.HTML {
+			// 用html渲染函数传入的参数
+			return template.HTML(str)
+		},
+	})
+	// 3.加载样式文件 不然如果模板里面使用了会找不到，/css是页面映射的路径，./static/css是实际路径
+	engine.Static("/css", "./static/css")
+	// 2.加载模板 这里可以加载多个，以及用Glob
 	engine.LoadHTMLFiles("./templates/index.tmpl")
 	engine.GET("/index", func(ctx *gin.Context) {
 		ctx.HTML(200, "index.tmpl", gin.H{
-			"title": "hello template",
+			// "title": "hello template",
+			"title": "<a href='http://www.baidu.com'>hello template</a>",
 		})
 	})
+	// 4.
 	err := engine.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
