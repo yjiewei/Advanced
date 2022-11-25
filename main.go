@@ -35,7 +35,8 @@ func main() {
 	// io()
 	// cp()
 	// seek()
-	web()
+	// web()
+	template()
 }
 
 func time() {
@@ -249,6 +250,21 @@ func web() {
 	})
 
 	// 4.启动项目
+	err := engine.Run(":8080")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func template() {
+	engine := gin.Default()
+	// 加载模板 这里可以加载多个，以及用Glob
+	engine.LoadHTMLFiles("./templates/index.tmpl")
+	engine.GET("/index", func(ctx *gin.Context) {
+		ctx.HTML(200, "index.tmpl", gin.H{
+			"title": "hello template",
+		})
+	})
 	err := engine.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
