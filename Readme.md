@@ -35,6 +35,8 @@
 - 书写URI的时候，我们不需要关心schema和authority这两部分，主要通过path和query两部分书写来进行资源的定位，比如静态URI，路径参数
 - 处理函数，type HandlerFunc func(*Context) ，通过上下文参数，获取HTTP请求参数，响应HTTP请求，比如 `func(ctx *gin.Context) { ctx.JSON(200, ctx.Param("path"))}`
 - 分组路由，比如分成版本、服务之间的区分 `v1 := engine.Group("/v1")`  `user := engine.Group("/user")`
+- 获取Get请求和Post请求带的参数值，包括不同的数据类型
+- 响应的不同数据类型
 
 ## X.碎碎念
 1. Advanced意思是进阶，想要取得进步继续努力；

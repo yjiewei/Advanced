@@ -224,6 +224,30 @@ func web() {
 		ctx.JSON(200, value)
 	})
 
+	// 6.响应不同的数据类型
+	engine.POST("/user/response", func(ctx *gin.Context) {
+		// 1.字符串类型
+		/*ctx.String(http.StatusOK, "this response is string type :%s ", "字符串类型的返回值")
+		// 2.返回json
+		ctx.JSON(200, gin.H{
+			"response": "返回json格式的数据",
+		})
+		// 3.返回xml
+		ctx.XML(200, gin.H{
+			"response": "返回xml格式的数据",
+		})
+		// 4.返回yaml
+		ctx.YAML(200, gin.H{
+			"response": "返回xml格式的数据",
+		})
+		// 5.返回文件格式的数据
+		ctx.File("./wechat.jpg")*/
+		// 6.设置响应的请求头
+		ctx.Header("test", "header")
+		// 7.设置重定向
+		//ctx.Redirect(http.StatusMovedPermanently, "http://www.baidu.com")
+	})
+
 	// 4.启动项目
 	err := engine.Run(":8080")
 	if err != nil {
