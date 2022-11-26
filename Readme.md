@@ -38,6 +38,8 @@
 - 获取Get请求和Post请求带的参数值，包括不同的数据类型
 - 响应的不同数据类型
 - 模板渲染，看样子是集成了前端
+- cookie & session，session我们用中间件去处理`go get github.com/gin-contrib/sessions`
+- 基于Redis作为存储引擎保存session `go get github.com/gin-contrib/sessions/redis` 官网上都有地址
 
 ## X.碎碎念
 1. Advanced意思是进阶，想要取得进步继续努力；
