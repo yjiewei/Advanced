@@ -37,7 +37,8 @@ func main() {
 	// cp()
 	// seek()
 	// web()
-	templateRendering()
+	// templateRendering()
+	setCookie()
 }
 
 func time() {
@@ -277,6 +278,23 @@ func templateRendering() {
 		})
 	})
 	// 4.
+	err := engine.Run(":8080")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func setCookie() {
+	engine := gin.Default()
+	// 1.设置cookie
+	engine.GET("/cookie", func(ctx *gin.Context) {
+		ctx.SetCookie("site_cookie", "this is cookie value", 3600, "/", "localhost", false, true)
+		// 2.获取cookie 值
+		// ctx.Cookie("site_cookie")
+		// 3.删除cookie 把maxAge设置为-1即可
+		ctx.SetCookie("site_cookie", "this is cookie value", -1, "/", "localhost", false, true)
+	})
+
 	err := engine.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
