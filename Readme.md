@@ -24,6 +24,7 @@
     6. 避免循环依赖，一个包可以被多个包引入，但不会多次初始化
 - 为了执行包的初始化函数而导包，导入的时候可以对包起别名 _
 - go允许import不同代码库的代码，对于import要导入的外部的包，可以使用go get命令去下来放到GOPATH下，但是用模块管理之后要怎么做？
+- 关于ioutil包 `Deprecated: As of Go 1.16, the same functionality is now provided by package io or package os, and those implementations should be preferred in new code. See the specific function documentation for details.`
 
 ## 4.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
