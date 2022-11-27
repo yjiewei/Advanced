@@ -41,7 +41,8 @@ func main() {
 	// web()
 	// templateRendering()
 	// setCookie()
-	session()
+	// session()
+	bufferIO()
 }
 
 func time() {
@@ -331,4 +332,8 @@ func CustomMiddleWare() gin.HandlerFunc {
 		c.Next()          // 执行下一个中间件
 		c.Writer.Status() // 响应状态码
 	}
+}
+
+func bufferIO() {
+	utils.BufferIO()
 }
