@@ -33,7 +33,21 @@
   - 协程：Coroutine，由用户控制，通常跟子函数放在一起比较，协程和多线程相比，其优势体现在：协程执行效率极高。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程相比，线程数量越多，协程的性能优势越明显。
 - Go语言对于并发的实现就是靠协程，Goroutine
 
-## 4.Gin
+## 4.Goroutine
+- Goroutines在线程上的优势：
+  - 资源消耗低，只是堆栈大小的几个kb，可以根据程序需要增长收缩，而线程的堆栈是指定并且固定的
+  - Goroutines被多路复用到较少的OS线程。fixme:不懂什么意思
+  - 当使用Goroutines访问共享内存时，通过设计的通道可以防止竞态条件发生，通过可以认为是Goroutines通信的管道。
+- 封装main函数的Goroutine被称为主Goroutine，职责以及工作流程
+  - 设定每一个Goroutine所能申请的栈空间最大尺寸，栈空间超过这个则会stack overflow
+  - 创建defer语句，主Goroutine退出时的后续处理
+  - 启动专用于在后台清扫内存垃圾的Goroutine，并设置GC可用的标识
+  - 执行main包中的init函数
+  - 执行main函数
+- Goroutine不建议写返回值
+- main中的Goroutine终止了，程序将被终止
+
+## 5.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
 - 官网地址：https://gin-gonic.com/zh-cn/docs/
 - go work init 

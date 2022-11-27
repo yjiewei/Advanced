@@ -42,7 +42,15 @@ func main() {
 	// templateRendering()
 	// setCookie()
 	// session()
-	bufferIO()
+	// bufferIO()
+	// 协程 start 放在main方法中才能正常执行
+	//go printNum()
+	//for i := 0; i < 100; i++ {
+	//	fmt.Printf("这里是主协程打印数字：main - %d\n", i)
+	//}
+	//fmt.Println("主协程执行结束了。")
+	//time2.Sleep(5 * time2.Second)
+	// 协程 end
 }
 
 func time() {
@@ -336,4 +344,11 @@ func CustomMiddleWare() gin.HandlerFunc {
 
 func bufferIO() {
 	utils.BufferIO()
+}
+
+func printNum() {
+	for i := 0; i < 100; i++ {
+		fmt.Printf("这里是协程打印数字：%d\n", i)
+	}
+	fmt.Println("协程打印结束。")
 }
