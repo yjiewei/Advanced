@@ -25,6 +25,13 @@
 - 为了执行包的初始化函数而导包，导入的时候可以对包起别名 _
 - go允许import不同代码库的代码，对于import要导入的外部的包，可以使用go get命令去下来放到GOPATH下，但是用模块管理之后要怎么做？
 - 关于ioutil包 `Deprecated: As of Go 1.16, the same functionality is now provided by package io or package os, and those implementations should be preferred in new code. See the specific function documentation for details.`
+- 并发性Concurrency
+  - 多任务：我的电脑一边跑goland，一边放哔哩哔哩视频，一边挂着微信...因为CPU的速度非常快。
+  - 什么是并发：比如我们浏览器在下载文件和请求网页，单核处理器中，上下文来回切换，一会下载一会加载网页数据，这就是并发，从不同时间点开始，执行周期重叠。**如果是多核，他们同时在不同内核中运行，那他们就是并行。**
+  - 什么是并行：我一边听歌，一边写代码，一边抖腿...，并行不一定比并发快，因为并行需要组件间的相互通信。
+  - 进程、线程、协程(轻量级线程)：我开了微信(进程)，微信里面有朋友圈新消息提醒还能聊天(线程)
+  - 协程：Coroutine，由用户控制，通常跟子函数放在一起比较，协程和多线程相比，其优势体现在：协程执行效率极高。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程相比，线程数量越多，协程的性能优势越明显。
+- Go语言对于并发的实现就是靠协程，Goroutine
 
 ## 4.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
