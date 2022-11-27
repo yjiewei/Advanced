@@ -322,3 +322,13 @@ func session() {
 	})
 	r.Run(":8080")
 }
+
+// CustomMiddleWare
+// 自定义中间件：其实就是一个公有方法，拦截器来的，前置拦截器、后置拦截器，上下文对象设置都是可以的
+func CustomMiddleWare() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		fmt.Println("这是一个自定义中间件。")
+		c.Next()          // 执行下一个中间件
+		c.Writer.Status() // 响应状态码
+	}
+}

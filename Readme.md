@@ -40,6 +40,19 @@
 - 模板渲染，看样子是集成了前端
 - cookie & session，session我们用中间件去处理`go get github.com/gin-contrib/sessions`
 - 基于Redis作为存储引擎保存session `go get github.com/gin-contrib/sessions/redis` 官网上都有地址
+- 中间件（也可以自定义中间件），在请求和响应之间的特殊函数，每个中间件执行不同的功能，一个中间件执行完就下一个。
+  - 使用场景：请求限速、api接口签名处理、权限校验、统一错误处理
+  - 在Java中其实对应的是拦截器
+  ```go
+    // Default returns an Engine instance with the Logger and Recovery middleware already attached.
+    func Default() *Engine {
+      debugPrintWARNINGDefault()
+      engine := New()
+      // 这里用了两个中间件 日志和Recovery
+      engine.Use(Logger(), Recovery())
+      return engine
+    }
+  ```
 
 ## X.碎碎念
 1. Advanced意思是进阶，想要取得进步继续努力；
