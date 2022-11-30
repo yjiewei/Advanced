@@ -52,8 +52,8 @@ func main() {
 	//time2.Sleep(5 * time2.Second)
 	// 协程 end
 	// runtime()
-	race()
-
+	// race()
+	saleTicket()
 }
 
 func time() {
@@ -363,4 +363,8 @@ func runtime() {
 func race() {
 	// Found 1 data race(s)
 	utils.FuncRace()
+}
+
+func saleTicket() {
+	utils.Sale()
 }
