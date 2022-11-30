@@ -49,6 +49,9 @@
 - main中的Goroutine终止了，程序将被终止
 - Go语言的并发模型可以重点多看，文字描述内容比较多，https://www.bilibili.com/video/BV1MA411K7Yh/?p=16
   - 线程模型：1.内核级线程模型 2.用户级线程模型 3.，两级线程模型(Goroutine)
+- 临界资源安全问题
+  - 临界资源：指并发环境中多个进程、线程、协程共享的资源，如果处理不当，往往会导致数据不一致问题。
+  - `go run -race main.go` 这个命令可以显示程序执行路径
 
 ## 5.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo

@@ -51,7 +51,8 @@ func main() {
 	//fmt.Println("主协程执行结束了。")
 	//time2.Sleep(5 * time2.Second)
 	// 协程 end
-	runtime()
+	// runtime()
+	race()
 
 }
 
@@ -357,4 +358,9 @@ func printNum() {
 
 func runtime() {
 	utils.RuntimeFunc()
+}
+
+func race() {
+	// Found 1 data race(s)
+	utils.FuncRace()
 }
