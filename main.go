@@ -51,6 +51,8 @@ func main() {
 	//fmt.Println("主协程执行结束了。")
 	//time2.Sleep(5 * time2.Second)
 	// 协程 end
+	runtime()
+
 }
 
 func time() {
@@ -351,4 +353,8 @@ func printNum() {
 		fmt.Printf("这里是协程打印数字：%d\n", i)
 	}
 	fmt.Println("协程打印结束。")
+}
+
+func runtime() {
+	utils.RuntimeFunc()
 }

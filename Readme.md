@@ -32,6 +32,7 @@
   - 进程、线程、协程(轻量级线程)：我开了微信(进程)，微信里面有朋友圈新消息提醒还能聊天(线程)
   - 协程：Coroutine，由用户控制，通常跟子函数放在一起比较，协程和多线程相比，其优势体现在：协程执行效率极高。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程相比，线程数量越多，协程的性能优势越明显。
 - Go语言对于并发的实现就是靠协程，Goroutine
+- Go runtime包 `Package runtime contains operations that interact with Go's runtime system, such as functions to control goroutines. It also includes the low-level type information used by the reflect package; see reflect's documentation for the programmable interface to the run-time type system.`
 
 ## 4.Goroutine
 - Goroutines在线程上的优势：
@@ -46,6 +47,8 @@
   - 执行main函数
 - Goroutine不建议写返回值
 - main中的Goroutine终止了，程序将被终止
+- Go语言的并发模型可以重点多看，文字描述内容比较多，https://www.bilibili.com/video/BV1MA411K7Yh/?p=16
+  - 线程模型：1.内核级线程模型 2.用户级线程模型 3.，两级线程模型(Goroutine)
 
 ## 5.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
