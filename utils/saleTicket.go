@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// fixme 加了锁之后，原来用的等待组用起来不对。导致不能正常加锁？
+// fixme 加了锁之后，原来用的等待组用起来不对。导致不能正常加锁？ 解决版看 practice/saleTicket.go
 // 并发编程中的共享资源安全问题 https://pkg.go.dev/sync#Mutex
 var ticket = 10
 var wg sync.WaitGroup
@@ -32,7 +32,7 @@ func Sale() {
 
 func tickets(name string) {
 	rand.Seed(time.Now().UnixNano())
-	// 原语级别的 整了一把锁
+	// 原语级别的 整了一把锁 这里要定义为全局变量。。。。不然每个函数进来都是独立的锁，所以出现锁控制不住的问题。
 	mutex := sync.Mutex{}
 	for {
 		// 线程进入之后条件可能会改变，那输出可能就不对了，是否考虑加锁？go有其他方式处理吗
