@@ -43,6 +43,7 @@ func tickets(name string) {
 			fmt.Println(name, "售出电影票：", ticket)
 			ticket--
 		} else {
+			mutex.Unlock()
 			fmt.Println(name, "已售罄，没有电影票了。")
 			break
 		}
