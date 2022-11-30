@@ -54,6 +54,7 @@ func main() {
 	// runtime()
 	// race()
 	saleTicket()
+	// waitGroup()
 }
 
 func time() {
@@ -367,4 +368,9 @@ func race() {
 
 func saleTicket() {
 	utils.Sale()
+}
+
+// 等待组
+func waitGroup() {
+	utils.WG()
 }

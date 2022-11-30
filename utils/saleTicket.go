@@ -3,13 +3,16 @@ package utils
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
 // 并发编程中的共享资源安全问题
 var ticket = 10
+var wg sync.WaitGroup
 
 func Sale() {
+	wg.Add(4) // 如果数量有多余，会出现死锁问题
 	// 模拟4个售票口，即4个goroutine
 	go tickets("售票口1")
 	go tickets("售票口2")
@@ -17,7 +20,12 @@ func Sale() {
 	go tickets("售票口4")
 
 	// 防止主线程执行完直接结束了，协程还没开始的情况
-	time.Sleep(2 * time.Second)
+	// time.Sleep(2 * time.Second)
+	// 用同步等待的方法取代上面的线程睡眠，但是并没有解决共享变量的问题
+	fmt.Println("如果先输出这行，说明主线程已经执行完了，我们要等等。")
+	wg.Wait()
+	fmt.Println("协程也执行完毕了，那就放行吧。")
+
 }
 
 func tickets(name string) {
@@ -33,6 +41,7 @@ func tickets(name string) {
 			break
 		}
 	}
+	wg.Done()
 }
 
 /**

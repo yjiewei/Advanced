@@ -52,6 +52,7 @@
 - 临界资源安全问题
   - 临界资源：指并发环境中多个进程、线程、协程共享的资源，如果处理不当，往往会导致数据不一致问题。
   - `go run -race main.go` 这个命令可以显示程序执行路径
+  - 可以用 sync.WaitGroup 去解决
 
 ## 5.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
