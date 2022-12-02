@@ -56,6 +56,15 @@
   - https://pkg.go.dev/sync#Mutex
   - https://pkg.go.dev/sync#WaitGroup
   - 用互斥锁对资源很浪费，可以选择读写锁 https://pkg.go.dev/sync#RWMutex
+  - 通道channel，goroutines之间通信的管道，数据可以从一端流向另一端通过管道去接收。
+  - “不要通过共享内存来通信，而应该通过通信来共享内存”
+- 通道
+  - goroutines之间通信的管道，通道的发送和接收必须处在不同的goroutine中
+  - 声明通道和定义一个变量一样 声明：`var 通道名 chan 数据类型` 创建：`通道名 = make(chan 数据类型)`
+  - 可以使用通道传递数据，也能起到阻塞的作用，本身channel就是同步的，同一时间只能有一条goroutine来操作。
+  - 阻塞：不管你是读还是写都可能被阻塞，读的时候没有数据就会被阻塞，写的时候已有数据没有被读取也会阻塞。默认读写都是阻塞的，前提是没有缓存
+  - 死锁：只有读操作或者只有写操作就会出现死锁
+
 
 ## 5.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
