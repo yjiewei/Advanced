@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	var channel chan int
 	channel = make(chan int)
-	fmt.Printf("通道类型和值分别是：%T, %v", channel, channel)
+	fmt.Printf("通道类型和值分别是：%T, %v\n", channel, channel)
 	fmt.Println("通道参数给函数传递的是地址值")
 
 	// 1.如果不用通道去给主协程和子协程通信，可能会导致主协程结束导致程序退出
@@ -42,12 +42,17 @@ func main() {
 		close(channel)
 	}()
 	// 读不到数据就会阻塞，所以会等在这里
-	for {
-		data, ok := <-channel
-		fmt.Println("从通道中读取到的数据是：", data, ok)
-		if !ok {
-			break
-		}
+	//for {
+	//	data, ok := <-channel
+	//	fmt.Println("从通道中读取到的数据是：", data, ok)
+	//	if !ok {
+	//		break
+	//	}
+	//}
+
+	// 4.范围循环
+	for v := range channel {
+		fmt.Println("从通道中读取到的数据是：", v)
 	}
 	fmt.Println("主协程执行结束...")
 }
