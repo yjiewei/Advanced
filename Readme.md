@@ -66,6 +66,8 @@
   - 死锁：只有读操作或者只有写操作就会出现死锁
   - 如何关闭通道？close(chan) 会通知接收方不会有更多数据被发送到channel上了 `v,ok := <-channel` 
   - 通道上如何使用范围循环？通过range去判断接收的数据，不需要通过ok值
+  - 缓冲通道、定向通道
+  - time包中的通道相关函数 定时器 time.NewTimer(3*time.Second)
 
 
 ## 5.Gin
