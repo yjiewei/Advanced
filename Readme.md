@@ -68,6 +68,12 @@
   - 通道上如何使用范围循环？通过range去判断接收的数据，不需要通过ok值
   - 缓冲通道、定向通道
   - time包中的通道相关函数 定时器 time.NewTimer(3*time.Second)
+- select语句：类似于switch语句
+  - 每个case都必须是一个通信
+  - 所有channel表达式都会被求值
+  - 所有被发送的表达式都会被求值
+  - 如果有多个可以执行的case，会随机执行一个
+  - 如果没有case符合条件，执行default或阻塞
 
 
 ## 5.Gin
