@@ -58,6 +58,8 @@
   - 用互斥锁对资源很浪费，可以选择读写锁 https://pkg.go.dev/sync#RWMutex
   - 通道channel，goroutines之间通信的管道，数据可以从一端流向另一端通过管道去接收。
   - “不要通过共享内存来通信，而应该通过通信来共享内存”
+
+## 5.chan
 - 通道
   - goroutines之间通信的管道，通道的发送和接收必须处在不同的goroutine中
   - 声明通道和定义一个变量一样 声明：`var 通道名 chan 数据类型` 创建：`通道名 = make(chan 数据类型)`
@@ -75,9 +77,10 @@
   - 如果有多个可以执行的case，会随机执行一个
   - 如果没有case符合条件，执行default或阻塞
   - 可以用来监听通道的数据流动
+- Go语言的CSP模型：通信顺序进程，是一种并发编程模型
 
 
-## 5.Gin
+## 6.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
 - 官网地址：https://gin-gonic.com/zh-cn/docs/
 - go work init 
