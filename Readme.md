@@ -90,6 +90,14 @@
   - 对性能影响比较大，比正常代码运行速度慢一到两个数量级。
 - https://pkg.go.dev/reflect
 - reflect.TypeOf()是获取pair中的type，reflect.ValueOf()获取pair中的value
+- 静态类型：静态类型就是变量声明时赋予的类型，比如：type x int | var i *int | var str string 这里的int *int string 
+- 动态类型：运行时给这个变量赋值时，这个值的类型(如果值为nil的时候就没有动态类型)，一个变量的动态类型在运行时可能改变，这主要依赖于它的赋值(前提是这个变量是接口类型)
+  - 每个interface变量都会维护一个pair，里面记录了实际变量的值和类型(value, type)
+  - var A interface{} // 静态类型interface{}
+  - A = 10 // 静态类型为interface{} 动态为int
+  - A = "string" // 静态类型为interface{} 动态为string
+  - var M *int 
+  - A = M // A的值可以改变
 
 ## 7.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
