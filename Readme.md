@@ -98,6 +98,7 @@
   - A = "string" // 静态类型为interface{} 动态为string
   - var M *int 
   - A = M // A的值可以改变
+- 实例、value、type、从value指针的值、从type到指针的值、value的可修改性
 
 ## 7.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
