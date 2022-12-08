@@ -99,6 +99,9 @@
   - var M *int 
   - A = M // A的值可以改变
 - 实例、value、type、从value指针的值、从type到指针的值、value的可修改性
+- 通过reflect.Value设置实际变量的值（要想修改一个变量的值，那么必须通过该变量的指针地址，取消指针的引用） https://pkg.go.dev/reflect#Value.Elem
+- 通过reflect.ValueOf来进行方法的调用 https://pkg.go.dev/reflect#Value.Call
+- 函数的反射：函数也可以看做是接口变量类型
 
 ## 7.Gin
 - 视频地址：https://www.bilibili.com/video/BV1wG4y1Z7Wo
@@ -134,3 +137,5 @@
 2. 学Go最初的想法就是担心Java太卷，想换个赛道；
 3. 20221123广州疫情形势依旧很严峻，天天闷家里快发霉了；
 4. 20221128女朋友闹分手，疫情原因也见不上，这几天也没怎么写代码；
+5. 20221204厚着脸皮去找女朋友，成功挽回芳心；
+6. 20221208基础部分学习得七七八八了，可以去学习项目了；
